@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JVPL Season 3 Auction</title>
+    <title>JVPL Season 4 Auction</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600;700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -101,6 +101,87 @@
         @keyframes badgeGlow {
             from { box-shadow: 0 0 8px rgba(230,57,70,0.5); }
             to { box-shadow: 0 0 20px rgba(230,57,70,0.8), 0 0 40px rgba(255,107,53,0.3); }
+        }
+
+        /* ---- WINNERS TICKER ---- */
+        .winners-ticker {
+            background: linear-gradient(90deg, rgba(255,215,0,0.08), rgba(255,107,53,0.08), rgba(255,215,0,0.08));
+            border-bottom: 1px solid rgba(255,215,0,0.15);
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+            z-index: 9;
+            height: 36px;
+            display: flex;
+            align-items: center;
+        }
+
+        .ticker-label {
+            flex-shrink: 0;
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
+            color: #1a1a2e;
+            font-family: 'Oswald', sans-serif;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 0 14px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            white-space: nowrap;
+        }
+
+        .ticker-track {
+            display: flex;
+            animation: tickerScroll 18s linear infinite;
+            white-space: nowrap;
+        }
+
+        .ticker-track:hover { animation-play-state: paused; }
+
+        @keyframes tickerScroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .ticker-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 0 32px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 0.78rem;
+            color: #ccc;
+            white-space: nowrap;
+        }
+
+        .ticker-item .t-season {
+            color: #888;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .ticker-item .t-trophy { font-size: 0.85rem; }
+
+        .ticker-item .t-team {
+            color: #ffd700;
+            font-family: 'Oswald', sans-serif;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .ticker-item .t-captain {
+            color: #aaa;
+            font-size: 0.75rem;
+        }
+
+        .ticker-sep {
+            color: rgba(255,215,0,0.3);
+            padding: 0 8px;
+            font-size: 1rem;
         }
 
         /* ---- CONFIG PANEL ---- */
@@ -730,7 +811,60 @@
         <h1>JVPL Auction</h1>
         <div class="subtitle">Jyoti Vihar Premier League &bull; Bhagalpur</div>
     </div>
-    <div class="season-badge">Season 3</div>
+    <div class="season-badge">Season 4</div>
+</div>
+
+<!-- ===== WINNERS TICKER ===== -->
+<div class="winners-ticker">
+    <div class="ticker-label">&#127942; Champions</div>
+    <div style="overflow:hidden;flex:1;">
+        <div class="ticker-track">
+            <!-- first copy -->
+            <span class="ticker-item">
+                <span class="t-season">Season 1</span>
+                <span class="t-trophy">🏆</span>
+                <span class="t-team">Power Hitters</span>
+                <span class="t-captain">(Durgesh)</span>
+            </span>
+            <span class="ticker-sep">&#9670;</span>
+            <span class="ticker-item">
+                <span class="t-season">Season 2</span>
+                <span class="t-trophy">🏆</span>
+                <span class="t-team">Boundary Breakers</span>
+                <span class="t-captain">(Sonu)</span>
+            </span>
+            <span class="ticker-sep">&#9670;</span>
+            <span class="ticker-item">
+                <span class="t-season">Season 3</span>
+                <span class="t-trophy">🏆</span>
+                <span class="t-team">Boundary Breakers</span>
+                <span class="t-captain">(Ayush)</span>
+            </span>
+            <span class="ticker-sep">&#9670;</span>
+            <!-- duplicate for seamless loop -->
+            <span class="ticker-item">
+                <span class="t-season">Season 1</span>
+                <span class="t-trophy">🏆</span>
+                <span class="t-team">Power Hitters</span>
+                <span class="t-captain">(Durgesh)</span>
+            </span>
+            <span class="ticker-sep">&#9670;</span>
+            <span class="ticker-item">
+                <span class="t-season">Season 2</span>
+                <span class="t-trophy">🏆</span>
+                <span class="t-team">Boundary Breakers</span>
+                <span class="t-captain">(Sonu)</span>
+            </span>
+            <span class="ticker-sep">&#9670;</span>
+            <span class="ticker-item">
+                <span class="t-season">Season 3</span>
+                <span class="t-trophy">🏆</span>
+                <span class="t-team">Boundary Breakers</span>
+                <span class="t-captain">(Ayush)</span>
+            </span>
+            <span class="ticker-sep">&#9670;</span>
+        </div>
+    </div>
 </div>
 
 <!-- ===== CONFIG CONTROLS ===== -->
@@ -823,7 +957,7 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-box">
-                    <div class="stat-value">8</div>
+                    <div class="stat-value">6</div>
                     <div class="stat-label">Slots</div>
                 </div>
             </div>
@@ -854,7 +988,7 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-box">
-                    <div class="stat-value">8</div>
+                    <div class="stat-value">6</div>
                     <div class="stat-label">Slots</div>
                 </div>
             </div>
@@ -885,13 +1019,13 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-box">
-                    <div class="stat-value">8</div>
+                    <div class="stat-value">6</div>
                     <div class="stat-label">Slots</div>
                 </div>
             </div>
             <div class="player-list">
                 <div class="player-item" style="border-left-color:#e63946;">
-                    <span class="pname">Narayan &nbsp;<span style="background:#e63946;color:#fff;font-size:0.62rem;padding:1px 5px;border-radius:4px;font-weight:700;font-family:'Oswald',sans-serif;letter-spacing:1px;">C</span></span>
+                    <span class="pname">Kamariya &nbsp;<span style="background:#e63946;color:#fff;font-size:0.62rem;padding:1px 5px;border-radius:4px;font-weight:700;font-family:'Oswald',sans-serif;letter-spacing:1px;">C</span></span>
                     <span class="pprice" style="color:#e63946;">Captain</span>
                 </div>
             </div>
@@ -916,13 +1050,13 @@
                 </div>
                 <div class="stat-divider"></div>
                 <div class="stat-box">
-                    <div class="stat-value">8</div>
+                    <div class="stat-value">6</div>
                     <div class="stat-label">Slots</div>
                 </div>
             </div>
             <div class="player-list">
                 <div class="player-item" style="border-left-color:#4fc3f7;">
-                    <span class="pname">Chirag &nbsp;<span style="background:#4fc3f7;color:#1a1a2e;font-size:0.62rem;padding:1px 5px;border-radius:4px;font-weight:700;font-family:'Oswald',sans-serif;letter-spacing:1px;">C</span></span>
+                    <span class="pname">Krishna &nbsp;<span style="background:#4fc3f7;color:#1a1a2e;font-size:0.62rem;padding:1px 5px;border-radius:4px;font-weight:700;font-family:'Oswald',sans-serif;letter-spacing:1px;">C</span></span>
                     <span class="pprice" style="color:#4fc3f7;">Captain</span>
                 </div>
             </div>
@@ -937,7 +1071,7 @@
     let raiseAmount = 1;
     let currentBid = basePrice;
     let leadingTeamId = null;
-    const MAX_PLAYERS = 8;
+    const MAX_PLAYERS = 6;
 
     function adjustConfig(type, delta) {
         if (type === 'base') {
